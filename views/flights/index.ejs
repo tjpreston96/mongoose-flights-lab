@@ -1,7 +1,5 @@
 <%- include('../partials/header.ejs') %>
 
- 
-  <h1>All Flights</h1>
   <table>
     <thead>
       <tr>
@@ -20,6 +18,7 @@
           <td><%= f.airline %></td>
           <td><%= f.flightNo %></td>
           <td><%= f.departs %></td>
+          <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
         </tr>
         
           <% }) %> 
