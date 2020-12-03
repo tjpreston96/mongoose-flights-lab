@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <%- include('../partials/head.ejs') %>
-<body>
+<%- include('../partials/header.ejs') %>
+
   <h2>Enter a New Flight</h2>
-  <%- include('../partials/nav.ejs') %> 
 
 <form action="/flights" method="POST">
   <label>Airport:
@@ -39,6 +36,6 @@
   <input type="submit" value="Add Flight">
 </form>
 
-
+<%- include('../partials/footer.ejs') %>
 </body>
 </html>
