@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/stylesheets/style.css">
-    <title>Document</title>
-</head>
+  <%- include('../partials/head.ejs') %>
 <body>
-    <h2>Enter a New Flight</h2>
+  <h2>Enter a New Flight</h2>
+  <%- include('../partials/nav.ejs') %> 
+
 <form action="/flights" method="POST">
   <label>Airport:
     <select name="airport">
