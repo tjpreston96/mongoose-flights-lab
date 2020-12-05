@@ -9,7 +9,7 @@
 </p>
 <form id="add-destination-form" action="/destinations" method="POST">
   <label>Airport:</label>
-  <input type="text" name="airport">
+  <input type="text" name="airport" oninput="this.value = this.value.toUpperCase()">
   <input type="submit" value="Add Destination">
 </form>
 
