@@ -3,8 +3,10 @@
 <section id="show-page">
   <div>Airline: </div>
   <div><%= flight.airline %></div>
-  <div>Release Year: </div>
-  <div><%= flight.airport %></div>
+  <div>Airport: </div>
+  <ul>
+      <%- flight.airport.map( d => `<li>${d.airport}</li>`)%> 
+  </ul>
   <div>Flight No: </div>
   <div><%= flight.flightNo %></div>
   <div>Departs: </div>
@@ -19,11 +21,7 @@
   <label>Seat:</label>
   <input name="seat" required pattern="[A-F][1-9]\d?">
   <label>Price:</label>
-  <select name="rating">
-    <option value="1">Economy: $</option> 
-    <option value="2">Business: $$</option>
-    <option value="3">First Class: $$$</option>
-  </select>
+  <input type="text" name="price" id="" placeholder="$...">
   <input type="submit" value="Add Ticket">
 </form>
 
@@ -41,7 +39,7 @@
           <tr>
             <td><%= t.createdAt.toLocaleDateString() %></td>
             <td><%= t.seat %></td>
-            <td><%= t.price %></td>
+            <td>$<%= t.price %></td>
           </tr>
         <% }); %>
       </tbody>

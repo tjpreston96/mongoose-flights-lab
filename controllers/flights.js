@@ -18,12 +18,8 @@ function create(req, res) {
 
     const flight = new Flight(req.body)
     flight.save(function(err){
-        if(err){
-            console.log(err)
-            return res.render('flights/new', {err: err})
-        }
-        console.log(flight)
-        res.redirect('/flights')
+        if(err) return res.redirect('/flights/new')
+        res.redirect(`/flights/${flight._id}`)
     });
 }
 
