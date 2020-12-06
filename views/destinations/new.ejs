@@ -12,5 +12,16 @@
   <input type="text" name="airport" oninput="this.value = this.value.toUpperCase()">
   <input type="submit" value="Add Destination">
 </form>
+<tbody>
+    <h4>Destinations:</h4>
+    <% destinations.forEach((d)=> { %> 
+        <td><%= d.airport %><br></td>
+        <td>
+            <form action="flights/<%= d._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+            </form>
+        </td>
+</tbody>
+<% }) %> 
 
 <%- include('../partials/footer.ejs') %>
