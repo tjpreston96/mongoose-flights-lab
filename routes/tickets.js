@@ -3,6 +3,6 @@ var router = express.Router();
 const ticketsCtrl = require('../controllers/tickets');
 
 router.post('/flights/:id/tickets', ticketsCtrl.create);
-router.delete('/:ticketId/:flightId')
+router.delete('/:ticketId/:flightId', ticketsCtrl.delete)
 
 module.exports = router;
