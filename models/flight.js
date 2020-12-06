@@ -21,8 +21,8 @@ const flightSchema = new Schema ({
      default: () => Date.now() + 365 * 24 * 60 * 60 * 1000
     }, 
     tickets: [ticketSchema]
-}, {
+    }, {
     timestamps: true
-  });
+    });
 
 module.exports = mongoose.model('Flight', flightSchema)
