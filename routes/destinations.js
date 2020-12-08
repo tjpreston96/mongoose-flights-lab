@@ -1,10 +1,8 @@
-const express = require('express');
+const express = require('express')
 const router = express.Router();
 const destinationsCtrl = require('../controllers/destinations')
-
-router.get('/destinations/new', destinationsCtrl.new);
-router.post('/destinations', destinationsCtrl.create)
-router.post('/flights/:id/destinations', destinationsCtrl.addToAirport);
-router.delete('/destinations/:id', destinationsCtrl.delete)
-
-module.exports = router;
+router.get('/new', destinationsCtrl.new);
+router.post('/', destinationsCtrl.create);
+router.get('/:id', destinationsCtrl.show)
+router.delete('/:id', destinationsCtrl.deleteDestination);
+module.exports = router

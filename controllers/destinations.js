@@ -1,35 +1,27 @@
-const Destination = require('../models/destination');
-const { deleteOne } = require('../models/flight');
-const Flight = require('../models/flight')
-
-module.exports ={
+const Destination = require('../models/destination')
+module.exports = {
     new: newDestination,
     create,
-    addToAirport,
-    delete: deleteDestination
+    show,
+    deleteDestination,
 }
-
-function newDestination(req,res){
+function newDestination(req, res){
     Destination.find({}, function(err, destinations) {
-        res.render('destinations/new', {title: 'Add Destination', destinations});
-      })
-}
-
-function create(req, res) {
-    Destination.create(req.body, function(err, destination){
+        res.render('destinations/new', {title: 'Add Destination', destinations})
+    })
+}  
+function create(req, res){
+    Destination.create(req.body, function(err, destinations){
         res.redirect('/destinations/new')
     })
 }
-
-function addToAirport(req,res){
-    Flight.findById(req.params.id, function(err, flight){
-        flight.airport.push(req.body.destinationId)
-        flight.save(function(err){
-            res.redirect(`/flights/${flight._id}`)
-        })
+function show(req, res){
+    Destination.findById(req.params.id, function(err, destination){
+        res.render('destinations/show', {title: 'Destination Detail', destination})
     })
 }
-
 function deleteDestination(req, res){
-
+    Destination.findByIdAndDelete(req.params.id, function(err, destinations){
+        res.redirect('/destinations/new')
+    })
 }
